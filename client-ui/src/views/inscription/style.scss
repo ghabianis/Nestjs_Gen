@@ -1,0 +1,158 @@
+// --- images
+  .logo{
+    margin:10px 0;
+  }
+  .pdp {
+    width: 84px;
+    height: 84px;
+  }
+  // .vector {
+  //   position: relative;
+  //   bottom: 75px;
+  //   left: 95px;
+  // }
+  // --- MARGIN ---
+
+  // ------------margin-bottom------------
+  .mb-11 {
+    margin-bottom: 11px;
+  }
+  .mb-30 {
+    margin-bottom: 30px;
+  }
+  // margin-top 
+  .mb-20 {
+    margin-bottom: 20px !important;
+  }
+   
+  .mb-60 {
+    margin-bottom: 62px;
+  }
+  // ------------margin-top------------
+  .mt-10 {
+    margin-top: 10px;
+  }
+  .mt-30 {
+    margin-top: 30px;
+  }
+  .mt-60 {
+    margin-top: 60px;
+  }
+  
+  .mt-20 {
+    margin-bottom: 20px !important;
+    margin-top: 20px !important;
+  }
+  
+  // ------------font-size------------
+  .fs-11 {
+    font-size: 11px !important;
+  }
+  .fs-22 {
+    font-size: 22px !important;
+  }
+  .fs-13 {
+    font-size: 13px;
+    font-weight: 500;
+  
+  }
+  // ------------input------------ 
+
+  .input {
+    width: 150px;
+    height: 50px;
+  }
+  .full-input {
+    width: 320px;
+    height: 50px;
+    z-index: 10;
+
+  }
+  .el-input__inner {
+    color: #fff !important;
+  }
+
+
+  // ------------display 
+  .center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    width: 375px;
+    height: auto;
+  }
+  .flex-direction-column {
+    flex-direction: column !important;
+  }
+  .d-flex {
+      display: flex !important;
+    }
+  .justify-content-space-around{
+    justify-content: space-evenly !important;
+  }
+  // ------------buttons------------ 
+
+  // .btn {
+  //   font-family: "Poppins";
+  //   font-style: normal;
+  //   font-weight: 700;
+  //   font-size: 16px;
+  //   text-align: center;
+  //   color:#1D1148;
+  //   font-family:Poppins;
+  //   font-weight:600;
+  // }
+  // .btn-continue {
+  //   background-color: rgba(245, 134, 230, 1);
+  //   width: 316px;
+  //   height: 50px;
+  //   margin-bottom: 30px;
+  //   z-index: 9999;
+  // }
+  
+  // ------------form-inscription-header------------  
+  // .form-head {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   flex-direction: column;
+  // }
+  // ------------page-form-inscription-3------------ 
+
+
+  
+
+
+  // background Video 
+
+
+
+.z-index{
+  z-index: 1000 !important;
+}
+el-input{
+  z-index: 100;
+}
+el-input:focus{
+  border-color: red !important;
+}
+button{
+  z-index: 100;
+}
+el-button{
+  z-index: 9999;
+}
+
+
+
+.btn {
+  font-weight: 700;
+  font-size: 16px;
+  color:#1D1148;
+}
+.btn-continue {
+  background-color: rgba(245, 134, 230, 1);
+  
+  z-index: 9999;
+}

@@ -1,0 +1,25 @@
+vscode:
+  extensions:
+    - "dbaeumer.vscode-eslint"
+    - "ms-azuretools.vscode-docker"
+    - "esbenp.prettier-vscode"
+    - "mhutchie.git-graph"
+    - "eamodio.gitlens"
+    - "johnsoncodehk.volar"
+    - Prisma.prisma
+
+tasks:
+  - command: |
+      echo SERVER_PORT=8000 >> .env
+      echo "BASE_URL=$(gp url 8000)" >> .env
+      echo "SITE_URL=$(gp url 3001)" >> .env
+      echo "API_URL=$(gp url 8000)/nest" >> .env
+      echo "GITPOD_WORKSPACE_URL_APP=$(gp url 3001)" >> .env
+      api_url=$(gp url 8000) ./generate-open-api.sh
+      sudo docker-compose cp vue-app-dev:/app/node_modules ./client-ui/
+      sudo docker-compose cp server:/app/node_modules ./server/
+ports:
+  - port: 3002
+    visibility: public  
+  - port: 8000
+    visibility: public  

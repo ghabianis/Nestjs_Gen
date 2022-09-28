@@ -1,0 +1,330 @@
+version: "3"
+services:
+  vue-app-dev:
+    profiles: [ "dev" ]
+    build:
+      context: ./client-ui
+      dockerfile: docker/Dockerfile.dev
+    volumes:
+      - ./client-ui:/app
+      - /app/node_modules
+    ports:
+      - 3002:3001
+    environment:
+      VITE_SUPABASE_URL: ${BASE_URL}
+      VITE_IMAGE_KIT_PUBLIC_KEY: ${IMAGE_KIT_PUBLIC_KEY}
+      VITE_API_URL: ${API_URL}
+      VITE_SITE_URL: ${SITE_URL}
+      VITE_ANON_KEY: ${ANON_KEY}
+      VITE_IMAGE_KIT_ENDPOINT: "${IMAGE_KIT_ENDPOINT}"
+      VITE_RESET_PWD_REDIRECT_URL: http://localhost:3001/auth/password-reset=value
+      GITPOD_WORKSPACE_URL_APP: ${GITPOD_WORKSPACE_URL_APP}
+  vue-app-prod:
+    profiles: [ "prod" ]
+    image: ${CI_REGISTRY_IMAGE:-web_app}/vue-app:${CI_COMMIT_SHORT_SHA:-latest}
+    build:
+      context: ./client-ui
+      dockerfile: docker/Dockerfile.prod
+      args:
+        VITE_SUPABASE_URL: ${BASE_URL}
+        VITE_IMAGE_KIT_PUBLIC_KEY: ${IMAGE_KIT_PUBLIC_KEY}
+        VITE_IMAGE_KIT_ENDPOINT: "${IMAGE_KIT_ENDPOINT}"
+        VITE_API_URL: ${API_URL}/nest
+        VITE_SITE_URL: ${SITE_URL}
+        VITE_ANON_KEY: ${ANON_KEY}
+        VITE_RESET_PWD_REDIRECT_URL: http://localhost:3001/auth/password-reset=value
+        test: 55
+        test2: 22
+
+    ports:
+      - ${FO_PORT:-3001}:80
+    environment:
+      VITE_SUPABASE_URL: ${BASE_URL}
+      VITE_API_URL: ${API_URL}/nest
+      VITE_SITE_URL: ${SITE_URL}
+      VITE_ANON_KEY: ${ANON_KEY}
+      VITE_RESET_PWD_REDIRECT_URL: http://localhost:3001/auth/password-reset=value
+      test: 6
+      tesssst: 55
+  server:
+    profiles: [ "dev" ]
+    image: ${CI_REGISTRY_IMAGE:-web_app}/server:${CI_COMMIT_SHORT_SHA:-latest}
+    ports:
+      - 3101:3005
+    build:
+      context: server
+      args:
+        NPM_LOG_LEVEL: notice
+    volumes:
+      - ./server/src:/app/src
+      - ./server/prisma:/app/prisma
+      - ./docker/supabase/volumes/db/migration:/app/prisma/migrations
+      - ./server/scripts:/app/scripts
+
+    environment:
+      DEPLOYMENT_MODE: ${DEPLOYMENT_MODE}
+      POSTGRESQL_URL: "postgres://${POSTGRESQL_USER}:${POSTGRESQL_USER}@db"
+      BCRYPT_SALT: "${BCRYPT_SALT}"
+      KONG_URL: http://kong:8000
+      ANON_KEY: ${ANON_KEY}
+      SITE_URL: ${SITE_URL}
+      SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
+      JWT_SECRET_KEY: "${JWT_SECRET}"
+      JWT_EXPIRATION: "${JWT_EXPIRATION}"
+      IMAGE_KIT_PUBLIC_KEY: "${IMAGE_KIT_PUBLIC_KEY}"
+      IMAGE_KIT_PRIVATE_KEY: "${IMAGE_KIT_PRIVATE_KEY}"
+      IMAGE_KIT_ENDPOINT: "${IMAGE_KIT_ENDPOINT}"
+      CLOUDFLARE_TOKEN: "${CLOUDFLARE_TOKEN}"
+      CLOUDFLARE_ACCOUNT_ID: "${CLOUDFLARE_ACCOUNT_ID}"
+  server-prod:
+    profiles: [ "prod" ]
+    image: ${CI_REGISTRY_IMAGE:-web_app}/server:${CI_COMMIT_SHORT_SHA:-latest}
+    networks:
+      default:
+        aliases:
+          - server
+    build:
+      context: server
+      args:
+        NPM_LOG_LEVEL: notice
+
+    environment:
+      DEPLOYMENT_MODE: ${DEPLOYMENT_MODE}
+      POSTGRESQL_URL: "postgres://${POSTGRESQL_USER}:${POSTGRESQL_USER}@db"
+      BCRYPT_SALT: "${BCRYPT_SALT}"
+      KONG_URL: http://kong:8000
+      ANON_KEY: ${ANON_KEY}
+      SITE_URL: ${SITE_URL}
+      SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
+      JWT_SECRET_KEY: "${JWT_SECRET}"
+      JWT_EXPIRATION: "${JWT_EXPIRATION}"
+      IMAGE_KIT_PUBLIC_KEY: "${IMAGE_KIT_PUBLIC_KEY}"
+      IMAGE_KIT_PRIVATE_KEY: "${IMAGE_KIT_PRIVATE_KEY}"
+      IMAGE_KIT_ENDPOINT: "${IMAGE_KIT_ENDPOINT}"
+      CLOUDFLARE_TOKEN: "${CLOUDFLARE_TOKEN}"
+      CLOUDFLARE_ACCOUNT_ID: "${CLOUDFLARE_ACCOUNT_ID}"
+    command: npm run start
+    restart: on-failure
+
+  migrate:
+    profiles: [ "dev" ]
+    user: $USER_ID:$GROUP_ID
+    build:
+      context: server
+      args:
+        NPM_LOG_LEVEL: notice
+    command:
+      - /bin/sh
+      - -c
+      - sleep 5 && chmod +x prisma/fixViewPrisma && ./prisma/fixViewPrisma && npm run db:migrate-up &&  npm run seed && npm run seed-data
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./server/src:/app/src
+      - ./server/prisma:/app/prisma
+      - ./docker/supabase/volumes/db/migration:/app/prisma/migrations
+      - ./server/scripts:/app/scripts
+    environment:
+      POSTGRESQL_URL: "postgres://${POSTGRESQL_USER}:${POSTGRESQL_PASSWORD}@db"
+      BCRYPT_SALT: "${BCRYPT_SALT}"
+      KONG_URL: http://kong:8000
+      ANON_KEY: ${ANON_KEY}
+      SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
+    depends_on:
+      - db
+
+  migrate-prod:
+    profiles: [ "prod" ]
+    image: ${CI_REGISTRY_IMAGE:-web_app}/migrate:${CI_COMMIT_SHORT_SHA:-latest}
+    build:
+      context: server
+      args:
+        NPM_LOG_LEVEL: notice
+    command:
+      - /bin/sh
+      - -c
+      - sleep 5 && npm run db:migrate-up &&  npm run seed && npm run seed-data
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./docker/supabase/volumes/db/migration:/app/prisma/migrations
+    environment:
+      POSTGRESQL_URL: "postgres://${POSTGRESQL_USER}:${POSTGRESQL_PASSWORD}@db"
+      BCRYPT_SALT: "${BCRYPT_SALT}"
+      KONG_URL: http://kong:8000
+      ANON_KEY: ${ANON_KEY}
+      SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
+    depends_on:
+      - db
+  db:
+    profiles: [ "prod", "dev" ]
+    image: supabase/postgres:14.1.0
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf -c log_min_messages=fatal
+    restart: unless-stopped
+    ports:
+      - 5400:5432
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
+    volumes:
+      - /var/lib/postgresql/data
+      - ./docker/supabase/volumes/db/init:/docker-entrypoint-initdb.d
+  prisma-studio:
+    container_name: prisma-studio
+    image: timothyjmiller/prisma-studio:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - ${PRISMA_STUDIO_PORT}:5555
+    environment:
+      POSTGRES_URL: "postgres://${POSTGRESQL_USER}:${POSTGRESQL_PASSWORD}@db"
+    volumes:
+      - /app/server/prisma
+  pgadmin:
+    profiles: [ "dev" ]
+    image: dpage/pgadmin4
+    depends_on:
+      - db
+    ports:
+      - "53603:53603"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: ${POSTGRESQL_PASSWORD}
+      PGADMIN_LISTEN_PORT: 53603
+    restart: unless-stopped
+  studio:
+    profiles: [ "prod", "dev" ]
+    image: supabase/studio@sha256:4a15d652dc6c76c550f82da4353980b7f2ec4ac0b97519aa228ab962faed336c
+    restart: unless-stopped
+    environment:
+      SUPABASE_REST_URL: ${BASE_URL}/rest/v1/
+      SUPABASE_URL: http://kong:8000
+      STUDIO_PG_META_URL: http://meta:8080
+      SUPABASE_ANON_KEY: ${ANON_KEY}
+      SUPABASE_SERVICE_KEY: ${SERVICE_ROLE_KEY}
+  kong:
+    profiles: [ "prod", "dev" ]
+    image: kong:2.1
+    restart: unless-stopped
+    ports:
+      - ${SERVER_PORT:-8000}:8000/tcp
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /var/lib/kong/kong.yml
+      # https://github.com/supabase/cli/issues/14
+      KONG_DNS_ORDER: LAST,A,CNAME
+      KONG_PLUGINS: cors,key-auth,acl,basic-auth
+    volumes:
+      - ./docker/supabase/volumes/api/kong.yml:/var/lib/kong/kong.yml
+
+  auth:
+    profiles: [ "prod", "dev" ]
+    image: supabase/gotrue:v2.2.12
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: 9999
+
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgres://${POSTGRESQL_USER}:${POSTGRESQL_PASSWORD}@db/postgres?search_path=auth
+
+      API_EXTERNAL_URL: ${BASE_URL}
+      GOTRUE_SITE_URL: ${SITE_URL}
+      GOTRUE_URI_ALLOW_LIST: ${ADDITIONAL_REDIRECT_URLS}
+      GOTRUE_DISABLE_SIGNUP: ${DISABLE_SIGNUP}
+
+      GOTRUE_JWT_SECRET: ${JWT_SECRET}
+      GOTRUE_JWT_EXP: ${JWT_EXPIRY}
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+
+      GOTRUE_EXTERNAL_EMAIL_ENABLED: ${ENABLE_EMAIL_SIGNUP}
+      GOTRUE_MAILER_AUTOCONFIRM: ${ENABLE_EMAIL_AUTOCONFIRM}
+      GOTRUE_SMTP_ADMIN_EMAIL: ${SMTP_ADMIN_EMAIL}
+      GOTRUE_SMTP_HOST: ${SMTP_HOST}
+      GOTRUE_SMTP_PORT: ${SMTP_PORT}
+      GOTRUE_SMTP_USER: ${SMTP_USER}
+      GOTRUE_SMTP_PASS: ${SMTP_PASS}
+      GOTRUE_SMTP_SENDER_NAME: ${SMTP_SENDER_NAME}
+      GOTRUE_MAILER_URLPATHS_INVITE: /auth/v1/verify
+      GOTRUE_MAILER_URLPATHS_CONFIRMATION: /auth/v1/verify
+      GOTRUE_MAILER_URLPATHS_RECOVERY: /auth/v1/verify
+      GOTRUE_MAILER_URLPATHS_EMAIL_CHANGE: /auth/v1/verify
+
+      GOTRUE_EXTERNAL_PHONE_ENABLED: ${ENABLE_PHONE_SIGNUP}
+      GOTRUE_SMS_AUTOCONFIRM: ${ENABLE_PHONE_AUTOCONFIRM}
+
+  rest:
+    profiles: [ "prod", "dev" ]
+    image: postgrest/postgrest:v9.0.0
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      PGRST_DB_URI: postgres://${POSTGRESQL_USER}:${POSTGRESQL_PASSWORD}@db/postgres
+      PGRST_DB_SCHEMA: public
+      PGRST_DB_ANON_ROLE: gitub
+      PGRST_JWT_SECRET: ${JWT_SECRET}
+      PGRST_DB_USE_LEGACY_GUCS: "false"
+
+  realtime:
+    profiles: [ "prod", "dev" ]
+    image: supabase/realtime:v0.19.3
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: postgres
+      DB_USER: ${POSTGRESQL_USER}
+      DB_PASSWORD: ${POSTGRESQL_PASSWORD}
+      DB_SSL: "false"
+      PORT: 4000
+      JWT_SECRET: ${JWT_SECRET}
+      REPLICATION_MODE: RLS
+      REPLICATION_POLL_INTERVAL: 100
+      SECURE_CHANNELS: "false"
+      SLOT_NAME: supabase_realtime_rls
+      TEMPORARY_SLOT: "true"
+    command: >
+      bash -c "./prod/rel/realtime/bin/realtime eval Realtime.Release.migrate && ./prod/rel/realtime/bin/realtime start"
+  storage:
+    profiles: [ "prod", "dev" ]
+    image: supabase/storage-api:v0.10.0
+    depends_on:
+      - db
+      - rest
+    restart: unless-stopped
+    environment:
+      ANON_KEY: ${ANON_KEY}
+      SERVICE_KEY: ${SERVICE_ROLE_KEY}
+      POSTGREST_URL: http://rest:3000
+      PGRST_JWT_SECRET: ${JWT_SECRET}
+      DATABASE_URL: postgres://${POSTGRESQL_USER}:${POSTGRESQL_PASSWORD}@db/postgres
+      PGOPTIONS: -c search_path=storage,public
+      FILE_SIZE_LIMIT: 52428800
+      STORAGE_BACKEND: file
+      FILE_STORAGE_BACKEND_PATH: /var/lib/storage
+      TENANT_ID: stub
+      # TODO: https://github.com/supabase/storage-api/issues/55
+      REGION: stub
+      GLOBAL_S3_BUCKET: stub
+    volumes:
+      - ./docker/supabase/volumes/storage:/var/lib/storage
+
+  meta:
+    profiles: [ "prod", "dev" ]
+    image: supabase/postgres-meta:v0.29.0
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      PG_META_PORT: 8080
+      PG_META_DB_HOST: db
+      PG_META_DB_PASSWORD: ${POSTGRESQL_PASSWORD}
+volumes:
+  postgres: ~

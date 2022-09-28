@@ -1,0 +1,74 @@
+stages:
+  - build-push
+  - deploy
+
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY  
+
+.InitVarEnv: &InitVarEnv
+  ##### Env dev
+  - export IMAGE_KIT_PUBLIC_KEY=$IMAGE_KIT_PUBLIC_KEY
+  - export IMAGE_KIT_PRIVATE_KEY=$IMAGE_KIT_PRIVATE_KEY
+  - export IMAGE_KIT_ENDPOINT=$IMAGE_KIT_ENDPOINT
+
+Build and push to registry PROD: 
+  stage: build-push
+  only: 
+  - develop
+  tags: 
+    - tekab-prod-retchee
+  script: 
+    - *InitVarEnv
+    - docker-compose --profile prod build 
+    - docker-compose --profile prod push
+
+
+Build and push to registry: 
+  stage: build-push
+  only: 
+  - develop
+  tags: 
+    - tekab
+  script: 
+    - *InitVarEnv
+    - docker-compose --profile prod build 
+    - docker-compose --profile prod push
+
+# Deployments
+Deploy to staging: 
+  stage: deploy
+  needs:
+    - job: Build and push to registry
+  only: 
+  - develop
+  tags: 
+  - tekab
+  when: manual
+  environment: staging
+  variables:
+    STAGE: staging
+    FO_PORT: 6200
+    SERVER_PORT: 6201
+  script: 
+  - *InitVarEnv  
+  - docker-compose --profile prod pull
+  - docker-compose --profile prod --project-name ${CLIENT_NAME:-demo}_${CI_PROJECT_NAME}_${STAGE} up -d 
+
+Deploy to prod: 
+  stage: deploy
+  needs:
+    - job: Build and push to registry
+  only: 
+  - develop
+  when: manual
+  environment: production
+  tags: 
+  - tekab-prod-retchee
+  variables:
+    STAGE: prod
+    FO_PORT: 6200
+    SERVER_PORT: 6201
+  script: 
+  - *InitVarEnv  
+  - docker-compose --profile prod pull
+  - docker-compose --profile prod --project-name ${CLIENT_NAME:-demo}_${CI_PROJECT_NAME}_${STAGE} up -d 

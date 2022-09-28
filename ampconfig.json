@@ -1,0 +1,19 @@
+{
+  "dataServiceGeneratorVersion": "0.11.2",
+  "appInfo": {
+    "name": "Retchee DB",
+    "description": "Retchee DB",
+    "version": "l4c8idw1",
+    "id": "cl56mpj7b553642hsur6wx9piou",
+    "url": "http://localhost:3005/cl56mpj7b553642hsur6wx9piou",
+    "settings": {
+      "dbHost": "localhost",
+      "dbName": "",
+      "dbPassword": "admin",
+      "dbPort": 5432,
+      "dbUser": "admin",
+      "appId": "cl56mpj7b553642hsur6wx9piou",
+      "authProvider": "Jwt"
+    }
+  }
+}

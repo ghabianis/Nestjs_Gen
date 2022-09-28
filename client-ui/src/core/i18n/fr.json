@@ -1,0 +1,506 @@
+{
+  "welcome": "Bonjour, Bienvenue à la page d'accueil !",
+  "users": "Utlisateurs",
+  "usersManagement": "Gestion des utlisateurs",
+  "login": {
+    "title": "Se connecter",
+    "newHere": "nouveau ici",
+    "register": "Créer un compte"
+  },
+  "messages": {
+    "loginFailed": "Veuillez vérifier votre email et votre mot de passe",
+    "signUpFailed": "L'inscription a échoué"
+  },
+  "firstName": "Prénom",
+  "lastName": "Nom",
+  "language": "langue",
+  "gender": "sexe",
+  "phone": "Télephone",
+  "activityField": "Secteur d'activité",
+  "wantedPost": "emploi recherché",
+  "city": "Ville ",
+  "salary": "Salaire ",
+  "kmRadius": "Rayon de km",
+  "contract": "Contrat",
+  "uploadYourResume": "Téléchargez votre CV",
+  "uploadYourvideo": "Insérer une présentation vidéo ou créer une vidéo de présentation ",
+  "courseTitle": "Titre de formation *",
+  "centerName": "Nom du centre ",
+  "startgingDate": "Start date *",
+  "endingDate": "End date *",
+  "country": "country *",
+  "description": "la description",
+  "occupiedPosition": "Votre rôle* ",
+  "companyName": "Société",
+  "startgingDate2": "Start date ",
+  "endingDate2": "Start date *",
+  "country2": "country *",
+  "description2": "Description*",
+  "email": "E-mail",
+  "password": "Mot de passe",
+  "forgotPassword": "Mot de passe Oublié",
+  "signIn": "Connecter",
+  "newPassword": "Nouveau Mot de passe",
+  "createAccount": "Créer un compte",
+  "role": "Role",
+  "alreadyHaveAnAccount": "Vous avez déjà un compte",
+  "signUp": "S'inscrire",
+  "signUpInterface": {
+    "title": "Créer un Compte",
+    "signUp": "S'identifier ici"
+  },
+  "submit": "Soumettre",
+  "cancel": "Annuler",
+  "resetPassword": "Réinitialiser le mot de passe",
+  "msgResetPasswordInterface": {
+    "title": "Réinitialiser Votre Mot de Passe",
+    "msg": "Veuillez visiter votre email, vous recevrez un email pour réinitialiser votre mot de passe."
+  },
+  "resetPasswordInterface": {
+    "title": "Réinitialiser Votre Mot de Passe",
+    "msg": "Entrez votre nouveau mot de passe"
+  },
+  "emailResetPasswordInterface": {
+    "title": "Mot de Passe Oublié",
+    "msg": "Saisissez votre email pour réinitialiser votre mot de passe"
+  },
+  "entityForm": {
+    "title": {
+      "create": "créer",
+      "edit": "editer"
+    },
+    "fields": {
+      "date": "Choisissez une date",
+      "time": "Choisissez une heure"
+    },
+    "buttonsContent": {
+      "confirm": "confirmer",
+      "cancel": "Annuler"
+    },
+    "validation": {
+      "required": "Ce champ est requis",
+      "length": "La longueur doit être d'au moins 3 caractères",
+      "NumberType": "Ce champ doit être un nombre",
+      "fileSize": "Taille maximale est 10 Mo",
+      "fileType": "Type de fichier non supporté"
+    }
+  },
+  "error404": {
+    "returnHome": "Rentrer à la page d'accueil",
+    "message": "On dirait qu'il n'y a rien ici"
+  },
+  "detail": {
+    "back": "back"
+  },
+  "entityList": {
+    "pagination": {
+      "display": "Affichage",
+      "items": "Éléments",
+      "itemsPerPage": "Éléments par page"
+    }
+  },
+  "confirmModal": {
+    "deleteContent": "Êtes-vous sûr de vouloir supprimer",
+    "deleteTitle": "Suppression",
+    "buttonsContent": {
+      "confirm": "confirmer",
+      "cancel": "Annuler"
+    }
+  },
+  "event": {
+    "form": {
+      "eventStartDate": "Date début événement",
+      "eventStartDatePlaceholder": "Date début événement",
+      "eventEndDate": "Date fin événement",
+      "eventEndDatePlaceholder": "Date fin événement",
+      "eventMode": "À distance/sur place",
+      "eventModePlaceholder": "Sélectionnez mode événement",
+      "location": "Emplacement",
+      "locationPlaceholder": "Entrez l'emplacement",
+      "link": "Lien",
+      "linkPlaceholder": "Entrer le lien",
+      "speakers": "Invités",
+      "speakersButton": "Ajouter invité",
+      "title": "Titre de l'événement",
+      "titlePlaceholder": "Entrer titre événement",
+      "activityField": "Sélection communauté",
+      "activityFieldPlaceholder": "Sélectionnez communauté",
+      "description": "Description",
+      "confirm": "Partager l'événement",
+      "cancel": "Annuler",
+      "update": "Modifier l'événement",
+      "validation": {
+        "startDate": "Date début doit être inférieure à la date fin",
+        "endDate": "Date fin doit être supérieure à la date début"
+      },
+      "discardDraft": {
+        "update": {
+          "title": "Annuler modification",
+          "message": "Vous n'avez pas encore enregistré vos modifications. Voulez-vous vraiment quitter ?",
+          "goBack": "Retourner",
+          "discard": "Annuler"
+        },
+        "create": {
+          "title": "Annuler Publication",
+          "message": "Vous n'avez pas encore terminé votre publication. Voulez-vous quitter et supprimer votre brouillon ?",
+          "goBack": "Retourner",
+          "discard": "Annuler"
+        }
+      }
+    },
+    "card": {
+      "deleteDialog": {
+        "title": "Supprimer événement",
+        "message": "Voulez-vous vraiment supprimer cette événement?",
+        "goBack": "Annuler",
+        "discard": "Supprimer"
+      }
+    },
+    "popup": {
+      "create": "L'événement est créée avec succès",
+      "update": "L'événement est mise à jour avec succès",
+      "delete": "L'événement a été supprimée avec succès"
+    }
+  },
+  "story": {
+    "list": {
+      "entityPluralName": "Créer Story",
+      "paginationItemName": "Stories"
+    },
+    "form": {
+      "title": "Titre Story",
+      "activityField": "Sélection la Communauté",
+      "activityFieldPlaceholder": "Sélectionnez communauté",
+      "confirm": {
+        "create": "Publier Story",
+        "update": "Modifier Story"
+      },
+      "cancel": "Annuler"
+    },
+    "discardDraft": {
+      "title": "Annuler Publication",
+      "message": "Vous n'avez pas encore terminé votre message. Voulez-vous quitter et supprimer votre brouillon ?",
+      "goBack": "Retourner",
+      "discard": "Annuler"
+    },
+    "storyCard": {
+      "title": {
+        "views": "Vues",
+        "likes": "J'aime",
+        "comments": "Commentaires",
+        "messages": "Messages"
+      },
+      "deleteDialog": {
+        "title": "Supprimer Story",
+        "message": "Voulez-vous vraiment supprimer cette story ?",
+        "goBack": "Annuler",
+        "discard": "Supprimer"
+      }
+    },
+    "successMessages": {
+      "create": "Le storie est créée avec succès",
+      "update": "Le storie est mise à jour avec succès",
+      "delete": "Le storie a été supprimée avec succès"
+    },
+    "storyModal":{
+      "placeholder": "Envoyer un message..",
+      "seeMore": "...Voir plus",
+      "seeLess": "Voir moins",
+      "send": "Envoyer"
+    }
+  },
+  "post": {
+    "form": {
+      "upload": "Télecharger image",
+      "camera": "Caméra",
+      "recent": "Récents",
+      "activityField": "Sélection Communauté",
+      "activityFieldPlaceholder": "Sélectionnez communauté",
+      "description": "Description",
+      "confirm": "Partager la publicaton",
+      "cancel": "Annuler",
+      "update": "Modifier la publication",
+      "discardDraft": {
+        "update": {
+          "title": "Annuler modification",
+          "message": "Vous n'avez pas encore enregistré vos modifications. Voulez-vous vraiment quitter ?",
+          "goBack": "Retourner",
+          "discard": "Annuler"
+        },
+        "create": {
+          "title": "Annuler Publication",
+          "message": "Vous n'avez pas encore terminé votre publication. Voulez-vous quitter et supprimer votre brouillon ?",
+          "goBack": "Retourner",
+          "discard": "Annuler"
+        }
+      }
+    },
+    "card": {
+      "deleteDialog": {
+        "title": "Supprimer post",
+        "message": "Voulez-vous vraiment supprimer cette post?",
+        "goBack": "Annuler",
+        "discard": "Supprimer"
+      }
+    },
+    "popup": {
+      "create": "La publication est créée avec succès",
+      "update": "La publication est mise à jour avec succès",
+      "delete": "La publication a été supprimée avec succès"
+    }
+  },
+  "talentManagement": {
+    "header": {
+      "button": {
+        "allUsers": "Tous les Utlisateurs",
+        "myAudience": "Mon Audience"
+      },
+      "search": {
+        "placeholder": "Rechercher avec tags ou bonus candidat"
+      }
+    },
+    "card": {
+      "watchCv": "Regardez Cv",
+      "readCv": "Lire Cv",
+      "contact": "Contactez"
+    },
+    "profileDrawer": {
+      "bio": "Bio",
+      "features": "Features",
+      "featureCard": {
+        "seeMore": "Voir plus"
+      },
+      "resumeCard": {
+        "resumeVideo": "CV Vidéo",
+        "resumeDocument": "CV Document"
+      }
+    }
+  },
+  "offer": {
+    "form": {
+      "place": "Lieu",
+      "placePlaceholder": "Entrer lieu",
+      "experienceLevel": "Niveau experience",
+      "experienceLevelPlaceholder": "Entrer niveau experience",
+      "contract": "Contrat",
+      "contractPlaceholder": "Selectionner contrat",
+      "renumeration": "Renumeration",
+      "renumerationPlaceholder": "Entrer renumeration",
+      "candidateMaxNumber": "NB max de candidatures",
+      "candidateMaxNumberPlaceholder": "Entrer nombre de candidature",
+      "title": "Titre",
+      "titlePlaceholder": "Entrer titre",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrer description",
+      "activityField": "Sélection Communauté",
+      "activityFieldPlaceholder": "Sélectionnez communauté",
+      "offerMode": "Remote/On-site",
+      "offerModePlaceholder": "Sélectionnez le mode de travail",
+      "confirm": {
+        "create": "Publier Offre",
+        "update": "Modifier Offre"
+      },
+      "cancel": "Annuler",
+      "discardDraft": {
+        "update": {
+          "title": "Annuler modification",
+          "message": "Vous n'avez pas encore enregistré vos modifications. Voulez-vous vraiment quitter ?",
+          "goBack": "Retourner",
+          "discard": "Annuler"
+        },
+        "create": {
+          "title": "Annuler Publication",
+          "message": "Vous n'avez pas encore terminé votre publication. Voulez-vous quitter et supprimer votre brouillon ?",
+          "goBack": "Retourner",
+          "discard": "Annuler"
+        }
+      }
+    },
+    "card": {
+      "deleteDialog": {
+        "title": "Supprimer offre",
+        "message": "Voulez-vous vraiment supprimer cette offre ?",
+        "goBack": "Annuler",
+        "discard": "Supprimer"
+      },
+      "disableDialog": {
+        "title": "Cloturer offre",
+        "message": "Voulez-vous vraiment cloturer cette offre ?",
+        "goBack": "Annuler",
+        "discard": "Cloturer"
+      },
+      "activateDialog": {
+        "title": "Activer offre",
+        "message": "Voulez-vous vraiment activer cette offre ?",
+        "goBack": "Annuler",
+        "discard": "Activer"
+      }
+    },
+    "popup": {
+      "create": "L'offre est créée avec succès",
+      "update": "L'offre est mise à jour avec succès",
+      "delete": "L'offre a été supprimée avec succès",
+      "duplicate": "L'offre a été dupliqué avec succès"
+    }
+  },
+  "video": {
+    "form": {
+      "video": "Ajouter video",
+      "addVideo": "Ajouter video",
+      "type": "Type video",
+      "typePlaceholder": "Sélectionnez type",
+      "typeOptions": {
+        "tutorial": "Tutoriel",
+        "feedback": "Feedback",
+        "interview": "Interview",
+        "stretching": "Stretching"
+      },
+      "activityField": "Sélection la communauté",
+      "activityFieldPlaceholder": "Selectionnez communauté",
+      "description": "description",
+      "confirm": "Publier Video",
+      "cancel": "Annuler",
+      "update": "Modifier Video",
+      "discardDraft": {
+        "update": {
+          "title": "Annuler modification",
+          "message": "Vous n'avez pas encore enregistré vos modifications. Voulez-vous vraiment quitter ?",
+          "goBack": "Retourner",
+          "discard": "Annuler"
+        },
+        "create": {
+          "title": "Annuler Publication",
+          "message": "Vous n'avez pas encore terminé votre publication. Voulez-vous quitter et supprimer votre brouillon ?",
+          "goBack": "Retourner",
+          "discard": "Annuler"
+        }
+      }
+    },
+    "card": {
+      "duration": {
+        "second": "Sec",
+        "minute": "Min"
+      },
+      "deleteDialog": {
+        "title": "Supprimer video",
+        "message": "Voulez-vous vraiment supprimer cette video ?",
+        "goBack": "Annuler",
+        "discard": "Supprimer"
+      }
+    },
+    "popup": {
+      "create": "La vidéo est créée avec succès",
+      "update": "La vidéo est mise à jour avec succès",
+      "delete": "La vidéo a été supprimée avec succès"
+    }
+  },
+  "breadcrumb": {
+    "active": "En cours",
+    "archives": "Archives"
+  },
+  "entrepriseProfile": {
+    "header": {
+      "subs": "Abonnés",
+      "email": "Email",
+      "follow": "S'abonner",
+      "following": "déjà abonné",
+      "website": "Visiter le site web",
+      "tabs": {
+        "post": "Contenu RH",
+        "story": "Story",
+        "event": "Evénements",
+        "offer": "Offre d'emploi"
+      }
+    },
+    "aside": {
+      "community": "Community",
+      "exchange": "Espace d'echange"
+    },
+    "offer": {
+      "card": {
+        "description": "Description",
+        "likes": "J'aime",
+        "shares": "Partages",
+        "comments": "Commentaires",
+        "share": "Partager",
+        "comment": "Commenter",
+        "send": "Envoyer",
+        "seeMore": "Voir plus",
+        "seeLess": "Voir moins"
+      }
+    }
+  },
+  "date": {
+    "second": {
+      "short": "Sec",
+      "long": "Second"
+    },
+    "minute": {
+      "short": "Min",
+      "long": "Minute"
+    },
+    "hour" : "Heure",
+    "day" : "Jour",
+    "week" : "Semaine" ,
+    "month" : "Mois",
+    "year" :"Année",
+    "ago" : "Il ya",
+    "months": {
+      "January": "Janvier",
+      "February": "Février",
+      "March": "Mars",
+      "April": "Avril",
+      "May": "Mai",
+      "June": "Juin",
+      "July": "Juillet",
+      "August": "Aout",
+      "September": "Septembre",
+      "October": "Octobre",
+      "November": "Novembre",
+      "December": "Décembre"
+    },
+    "dayOfWeek":{
+      "Sunday": "Dimanche", 
+      "Monday": "Lundi", 
+      "Tuesday": "Mardi", 
+      "Wednesday": "Mercredi", 
+      "Thursday": "Jeudi", 
+      "Friday": "Vendredi", 
+      "Saturday": "Samedi"
+    }
+  },
+  "adminStatistic": {
+    "sideMenu": {
+      "allContentStats": "Statistiques de l'ensemble des contenus",
+      "rhContentStats": "Les statistiques des contenus RH",
+      "storiesStats": "Les statistiques des stories",
+      "eventsStats": "Les statistiques des évenements",
+      "offersStats": "Les statistiques des offres d'emploi"
+    },
+    "mainCard": {
+      "selectChoice": {
+        "year": "Par année",
+        "week": "Par semaine",
+        "month": "Par mois",
+        "day": "Par jour"
+      },
+      "selectPlaceholder": "Choisir une date"
+    }
+  },
+  "jobApplication":{
+    "watchCv":"Regarder Cv",
+    "readCv":"Lire Cv",
+    "contact":"Contacter"
+  },
+  "applicationKanban":{
+    "likes":"J'aime",
+    "comments":"Commentaires",
+    "shares":"Partages",
+    "applicants":"Candidats",
+    "applyed":"En attente",
+    "inProgress":"En cours",
+    "approved":"Approuvé",
+    "rejected":"Refusé",
+    "edit":"Modifier"
+  }
+ }

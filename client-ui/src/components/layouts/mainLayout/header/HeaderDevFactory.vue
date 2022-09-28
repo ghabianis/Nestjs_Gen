@@ -1,0 +1,111 @@
+<template >
+  <!--begin::Header-->
+  <div id="kt_header" class="header align-items-stretch start-0">
+    <!--begin::Container-->
+    <div
+      :class="{
+        'container-fluid': headerWidthFluid,
+        'container-xxl': !headerWidthFluid,
+        'onScroll': !view.topOfPage,
+      }"
+      class="d-flex align-items-stretch justify-content-between"
+      style="min-width:100%"
+    >
+      <!--begin::Aside mobile toggle-->
+      <div class="d-flex align-items-center d-lg-none ms-n3 me-1" title="Show aside menu">
+        <div class="btn btn-icon btn-active-light-primary btn-nav" id="kt_aside_mobile_toggle">
+          <span class="svg-icon svg-icon-2x mt-1">
+            <inline-svg src="/svg/icons/abs015.svg" />
+          </span>
+        </div>
+        <div class="d-flex align-items-stretch flex-shrink-0 btn-nav">
+          <KTLogo></KTLogo>
+        </div>
+      </div>
+      <!--end::Aside mobile toggle-->
+
+      <!--begin::Wrapper-->
+      <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1 kt-main">
+        <slot>
+          <router-view />
+        </slot>
+        <!--end::Topbar-->
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Container-->
+  </div>
+  <!--end::Header-->
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import KTLogo from "@/components/layouts/mainLayout/header/Logo.vue";
+import { headerWidthFluid } from "@/core/helpers/config";
+
+
+export default defineComponent({
+  el: '#navbar',
+  name: "KTHeader",
+  props: {
+    title: String,
+  },
+
+
+  components: {
+    KTLogo,
+  },
+
+  setup() {
+    return {
+      headerWidthFluid
+    };
+  },
+
+  data() {
+    return {
+      view: {
+        topOfPage: true
+      }
+    }
+  },
+  beforeMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      if (window.pageYOffset > 0) {
+        if (this.view.topOfPage) this.view.topOfPage = false
+      } else {
+        if (!this.view.topOfPage) this.view.topOfPage = true
+      }
+    }
+  },
+});
+</script>
+<style lang="scss" scoped>
+.onScroll {
+  box-shadow: 0px 9px 50px #111633;
+  background-image: url(../../../png/icons/cover.png);
+  margin: 0 !important;
+ 
+  // background: none !important ;
+}
+// .active{
+//   background-color: #000000;
+// }
+#kt_header {
+  background: none !important ;
+  width: 100%;
+  position: fixed;
+}
+.btn-nav {
+  margin-right: 10px !important;
+}
+
+@media (max-width: 992px) {
+  .logo-nav {
+    display: none !important;
+  }
+}
+</style>

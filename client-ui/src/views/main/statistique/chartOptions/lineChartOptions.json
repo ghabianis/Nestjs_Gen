@@ -1,0 +1,75 @@
+{
+  "responsive": true,
+  "maintainAspectRatio": false,
+  "scales": {
+    "x": {
+      "title": {
+        "display": true,
+        "text": "Date",
+        "color": "#7239EA",
+        "font": {
+          "family": "Poppins",
+          "size": 13.5,
+          "weight": "600"
+        }
+      },
+      "ticks": {
+        "color": "rgba(255, 255, 255, 0.3)",
+        "padding": 20,
+        "font": {
+          "family": "Poppins",
+          "size": 12,
+          "weight": "500"
+        }
+      },
+      "grid": {
+        "drawTicks": false,
+        "color": "rgba(255, 255, 255, 0)",
+        "borderWidth": 2
+      }
+    },
+    "y": {
+      "title": {
+        "display": true,
+        "text": "Users",
+        "color": "#7239EA",
+        "font": {
+          "family": "Poppins",
+          "size": 13.5,
+          "weight": "600"
+        }
+      },
+      "ticks": {
+        "stepSize": 1,
+        "color": "rgba(255, 255, 255, 0.3)",
+        "padding": 20,
+        "font": {
+          "family": "Poppins",
+          "size": 12,
+          "weight": "500"
+        }
+      },
+      "grid": {
+        "drawTicks": false,
+        "color": "rgba(255, 255, 255, 0.2)",
+        "borderDash": [4, 4]
+      }
+    }
+  },
+  "plugins": {
+    "legend": {
+      "align": "start",
+      "labels": {
+        "padding": 50,
+        "usePointStyle": true,
+        "pointStyle": "circle",
+        "color": "#E9ECEF",
+        "font": {
+          "family": "Poppins",
+          "size": 16,
+          "weight": "600"
+        }
+      }
+    }
+  }
+}

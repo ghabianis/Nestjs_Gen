@@ -1,0 +1,505 @@
+{
+  "welcome": "Hello User, Welcome on Home Page!",
+  "users": "users",
+  "usersManagement": "Users Managements",
+  "login": {
+    "title": "Sign In",
+    "newHere": "New here",
+    "register": "Register"
+  },
+  "messages": {
+    "loginFailed": "Login failed please check your email and password",
+    "signUpFailed": "Sign Up failed"
+  },
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "language": "Language",
+  "gender": "Gender",
+  "phone": "Phone",
+  "activityField": "Activity Field",
+  "wantedPost": "Wanted Post",
+  "city": "City",
+  "kmRadius": "Km Radius ",
+  "salary": "Salary",
+  "contract": "Contract",
+  "uploadYourResume": "Upload Your Resume",
+  "uploadYourvideo": "Insert a video presentation or create a presentation video",
+  "courseTitle": "Course Title",
+  "centerName": "Center Name",
+  "startgingDate": "Start date ",
+  "endingDate": "Start date *",
+  "country": "country *",
+  "description": "Description*",
+  "occupiedPosition": "Occupied Position",
+  "companyName": "Company Name",
+  "startgingDate2": "Start date ",
+  "endingDate2": "Start date *",
+  "country2": "country *",
+  "description2": "Description*",
+  "email": "Email",
+  "password": "Password",
+  "newPassword": "New password",
+  "forgotPassword": "Forgot password",
+  "signIn": "Sign In",
+  "createAccount": "Create account",
+  "role": "Role",
+  "alreadyHaveAnAccount": "Already have an account",
+  "signUpInterface": {
+    "title": "Create an Account",
+    "signUp": "Sign Up"
+  },
+  "signUp": "Sign Up",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "resetPassword": "Reset password",
+  "msgResetPasswordInterface": {
+    "title": "Reset Password",
+    "msg": "Please check your email, you will receive email to reset your password"
+  },
+  "resetPasswordInterface": {
+    "title": "Reset Password",
+    "msg": "Enter your new password"
+  },
+  "emailResetPasswordInterface": {
+    "title": "Forgot Password",
+    "msg": "Enter your email to reset your password"
+  },
+  "entityForm": {
+    "title": {
+      "create": "create",
+      "edit": "edit"
+    },
+    "fields": {
+      "date": "Pick a date",
+      "time": "Pick a time"
+    },
+    "buttonsContent": {
+      "confirm": "confirm",
+      "cancel": "cancel"
+    },
+    "validation": {
+      "required": "This field is required",
+      "length": "Length should be at least 3 characters",
+      "NumberType": "this field must be a number",
+      "fileSize": "Max size 10Mo",
+      "fileType": "unsupported file type"
+    }
+  },
+  "error404": {
+    "returnHome": "Return Home",
+    "message": "Seems there is nothing here"
+  },
+  "detail": {
+    "back": "back"
+  },
+  "entityList": {
+    "pagination": {
+      "display": "Display",
+      "items": "Items",
+      "itemsPerPage": "Items per page"
+    }
+  },
+  "confirmModal": {
+    "deleteContent": "Are you sure you want to delete",
+    "deleteTitle": "Delete",
+    "buttonsContent": {
+      "confirm": "confirm",
+      "cancel": "cancel"
+    }
+  },
+  "event": {
+    "form": {
+      "eventStartDate": "Event start date",
+      "eventStartDatePlaceholder": "Event start date",
+      "eventEndDate": "Event end date",
+      "eventEndDatePlaceholder": "Event end date",
+      "eventMode": "Remote/On-site",
+      "eventModePlaceholder": "Select event mode",
+      "location": "Location",
+      "locationPlaceholder": "Enter the location",
+      "link": "Link",
+      "linkPlaceholder": "Enter the link",
+      "speakers": "Speakers",
+      "speakersButton": "Add new speaker",
+      "title": "Event Title",
+      "titlePlaceholder": "Enter event title",
+      "activityField": "Select communities",
+      "activityFieldPlaceholder": "Select communities",
+      "description": "Description",
+      "confirm": "Share event",
+      "cancel": "Cancel",
+      "update": "Edit event",
+      "validation": {
+        "startDate": "Invalid start date",
+        "endDate": "Invalid end date"
+      },
+      "discardDraft": {
+        "update": {
+          "title": "Discard changes",
+          "message": "You haven’t saved your changes yet. Are you sure you want to leave?",
+          "goBack": "Go back",
+          "discard": "Discard"
+        },
+        "create": {
+          "title": "Discard draft",
+          "message": "You haven’t finished your post yet. Are you sure you want to leave and discard your draft?",
+          "goBack": "Go back",
+          "discard": "Discard"
+        }
+      }
+    },
+    "card": {
+      "deleteDialog": {
+        "title": "Delete event",
+        "message": "Are you sure you want delete this event?",
+        "goBack": "Cancel",
+        "discard": "Delete"
+      }
+    },
+    "popup": {
+      "create": "Event is created successfully",
+      "update": "Event is updated successfully",
+      "delete": "Event is deleted successfully"
+    }
+  },
+  "story": {
+    "list": {
+      "entityPluralName": "Create Story",
+      "paginationItemName": "Stories"
+    },
+    "form": {
+      "title": "Title Story",
+      "activityField": "Select Community",
+      "activityFieldPlaceholder": "Select Community",
+      "confirm": {
+        "create": "Share Story",
+        "update": "Update Story"
+      },
+      "cancel": "Cancel"
+    },
+    "discardDraft": {
+      "title": "Discard draft",
+      "message": "You haven’t finished your post yet. Are you sure you want to leave and discard your draft?",
+      "goBack": "Go back",
+      "discard": "Discard"
+    },
+    "storyCard": {
+      "title": {
+        "views": "Views",
+        "likes": "Likes",
+        "comments": "Comments",
+        "messages": "Messages"
+      },
+      "deleteDialog": {
+        "title": "Delete Story",
+        "message": "Do you want really to delete this story ?",
+        "goBack": "Discard",
+        "discard": "Delete"
+      }
+    },
+    "successMessages": {
+      "create": "Story is created successfully",
+      "update": "Story is updated successfully",
+      "delete": "Story is deleted successfully"
+    },
+    "storyModal":{
+      "placeholder": "Send a message..",
+      "seeMore": "...See more",
+      "seeLess": "See less",
+      "send": "Send"
+    }
+
+  },
+  "talentManagement": {
+    "header": {
+      "button": {
+        "allUsers": "All Users",
+        "myAudience": "My Audience"
+      },
+      "search": {
+        "placeholder": "Search by tags"
+      }
+    },
+    "card": {
+      "watchCv": "Watch Cv",
+      "readCv": "Read Cv",
+      "contact": "Contact"
+    },
+    "profileDrawer": {
+      "bio": "Bio",
+      "features": "Features",
+      "featureCard": {
+        "seeMore": "See more"
+      },
+      "resumeCard": {
+        "resumeVideo": "Resume Video",
+        "resumeDocument": "Resume Document"
+      }
+    }
+  },
+  "post": {
+    "form": {
+      "upload": "Upload image",
+      "camera": "Camera",
+      "recent": "Recents",
+      "activityField": "Select Communities",
+      "activityFieldPlaceholder": "Select Communities",
+      "description": "description",
+      "confirm": "share post",
+      "cancel": "Cancel",
+      "update": "Edit post",
+      "discardDraft": {
+        "update": {
+          "title": "Discard changes",
+          "message": "You haven’t saved your changes yet. Are you sure you want to leave?",
+          "goBack": "Go back",
+          "discard": "Discard"
+        },
+        "create": {
+          "title": "Discard draft",
+          "message": "You haven’t finished your post yet. Are you sure you want to leave and discard your draft?",
+          "goBack": "Go back",
+          "discard": "Discard"
+        }
+      },
+      "popup": {
+        "create": "Post is created successfully",
+        "update": "Post is updated successfully",
+        "delete": "Post is deleted successfully"
+      }
+    },
+    "card": {
+      "deleteDialog": {
+        "title": "Delete Post",
+        "message": "Are you sure you want delete this post?",
+        "goBack": "Cancel",
+        "discard": "Delete"
+      }
+    }
+  },
+  "offer": {
+    "form": {
+      "place": "Place",
+      "placePlaceholder": "Enter place",
+      "minExperience": "Minimal experience",
+      "minExperiencePlaceholder": "Enter minimal experience",
+      "contract": "Contract",
+      "contractPlaceholder": "Select contract",
+      "renumeration": "Renumeration",
+      "renumerationPlaceholder": "Enter renumeration",
+      "candidateMaxNumber": "Maximum candidates number",
+      "candidateMaxNumberPlaceholder": "Enter maximum candidates",
+      "title": "Title",
+      "titlePlaceholder": "Enter Title",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter description",
+      "activityField": "Select Communities",
+      "activityFieldPlaceholder": "Select Communities",
+      "discardDraft": {
+        "update": {
+          "title": "Discard changes",
+          "message": "You haven’t saved your changes yet. Are you sure you want to leave?",
+          "goBack": "Go back",
+          "discard": "Discard"
+        },
+        "create": {
+          "title": "Discard draft",
+          "message": "You haven’t finished your post yet. Are you sure you want to leave and discard your draft?",
+          "goBack": "Go back",
+          "discard": "Discard"
+        },
+        "activateDialog": {
+          "title": "Activate offer",
+          "message": "Are you sure you want to activate this offer?",
+          "goBack": "Cancel",
+          "discard": "Activate"
+        }
+      },
+      "popup": {
+        "create": "Offer is created successfully",
+        "update": "Offer is updated successfully",
+        "delete": "Offer is deleted successfully",
+        "duplicate": "Offer is duplicated successfully"
+      }
+    },
+    "card": {
+      "deleteDialog": {
+        "title": "Delete Offer",
+        "message": "Are you sure you want delete this offer?",
+        "goBack": "Cancel",
+        "discard": "Delete"
+      },
+      "disableDialog": {
+        "title": "Disable offer",
+        "message": "Are you sure you want to disable this offer?",
+        "goBack": "Cancel",
+        "discard": "Disable"
+      },
+      "activateDialog": {
+        "title": "Activate offer",
+        "message": "Are you sure you want to activate this offer?",
+        "goBack": "Cancel",
+        "discard": "Activate"
+      },
+      "card": {
+        "duration": {
+          "second": "Sec",
+          "minute": "Min"
+        },
+        "deleteDialog": {
+          "title": "Delete Video",
+          "message": "Are you sure you want delete this video?",
+          "goBack": "Cancel",
+          "discard": "Delete"
+        }
+      },
+      "popup": {
+        "create": "Video is created successfully",
+        "update": "Video is updated successfully",
+        "delete": "Video is deleted successfully"
+      }
+    }
+  },
+  "video": {
+    "form": {
+      "video": "Upload video",
+      "addVideo": "Add Video",
+      "type": "Video Type",
+      "typePlaceholder": "Select Type",
+      "typeOptions": {
+        "tutorial": "Tutorial",
+        "feedback": "Feedback",
+        "interview": "Interview",
+        "stretching": "Stretching"
+      },
+      "activityField": "Select Communities",
+      "activityFieldPlaceholder": "Select Communities",
+      "description": "Description",
+      "confirm": "Share Video",
+      "cancel": "Cancel",
+      "update": "Edit Video",
+      "discardDraft": {
+        "update": {
+          "title": "Discard changes",
+          "message": "You haven’t saved your changes yet. Are you sure you want to leave?",
+          "goBack": "Go back",
+          "discard": "Discard"
+        },
+        "create" : {
+          "title":"Discard draft",
+          "message":"You haven’t finished your post yet. Are you sure you want to leave and discard your draft?",
+          "goBack":"Go back",
+          "discard":"Discard"
+        }
+      }  
+    }
+  },
+  "breadcrumb":{
+      "active" : "Active",
+      "archives" : "Archives"
+  },
+  "entrepriseProfile":{
+    "header":{
+      "subs":"followers",
+      "email":"Email",
+      "follow":"Follow",
+      "unfollow":"Following",
+      "website":"Visit website",
+      "tabs":{
+        "post": "Post",
+        "story" : "Story",
+        "event": "Event",
+        "offer":"Offer"
+      }
+    },
+    "aside":{
+      "community":"Community",
+      "exchange": "Exchange space"
+    },
+    "offer":{
+      "card":{
+        "description":"Description",
+        "likes":"Likes",
+        "shares":"shares",
+        "comments" :"comments",
+        "share":"share",
+        "comment" :"comment",
+        "send":"send",
+        "seeMore":"See more",
+        "seeLess":"See less"
+      }
+    }
+  } ,
+  "date": {
+    "second" : {
+      "short" : "Sec",
+      "long" : "Second"
+    },
+    "minute" : {
+      "short" : "Min",
+      "long" : "Minute"
+    },
+    "hour" : "Hour",
+    "day" : "Day",
+    "week" : "Week" ,
+    "month" : "Month",
+    "year" :"Year",
+    "ago" : "Ago",
+    "months": {
+      "January": "January",
+      "February": "February",
+      "March": "March",
+      "April": "April",
+      "May": "May",
+      "June": "June",
+      "July": "July",
+      "August": "August",
+      "September": "September",
+      "October": "October",
+      "November": "November",
+      "December": "December"
+    },
+    "dayOfWeek":{
+      "Sunday": "Sunday", 
+      "Monday": "Monday", 
+      "Tuesday": "Tuesday", 
+      "Wednesday": "Wednesday", 
+      "Thursday": "Thursday", 
+      "Friday": "Friday", 
+      "Saturday": "Saturday"
+    }
+  },
+  "adminStatistic":{
+    "sideMenu":{
+      "allContentStats":"Statistics of all contents",
+      "rhContentStats":"HR content statistics",
+      "storiesStats":"Story statistics",
+      "eventsStats":"Event statistics",
+      "offersStats":"Offer statistics"
+    },
+    "mainCard":{
+      "selectChoice":{
+        "year":"Per year",
+        "week":"Per week",
+        "month":"Per month",
+        "day":"Per day"
+      },
+      "selectPlaceholder":"Select a date"
+    }
+  },
+  "jobApplication":{
+    "watchCv":"Watch Cv",
+    "readCv":"Read Cv",
+    "contact":"Contact"
+  },
+  "applicationKanban":{
+    "likes":"Likes",
+    "comments":"Comments",
+    "shares":"Shares",
+    "applicants":"Applicants",
+    "applyed":"Applyed",
+    "inProgress":"In Progress",
+    "approved":"Approved",
+    "rejected":"Rejected"
+  }
+} 

@@ -1,0 +1,140 @@
+//
+// To make future updates easier consider overriding the global variables from _variables.bootstrap.scss and _variables.custom.scss for current demo in this file.
+// Note that this file is included first and variables defined in _variables.bootstrap.scss and _variables.custom.scss
+// are not accessible in this file but you can override any global variable as shown below:
+//
+
+// Theme colors
+// Primary
+$primary: if(isDarkMode(), #8950fc, #7239ea);
+$primary-active: if(isDarkMode(), #7337ee, #5014d0);
+$primary-light: if(isDarkMode(), #2f264f, #ede6fc);
+$primary-inverse: #ffffff;
+$primary-600: #D36CC5;
+$primary-500:#F586E6;
+$primary-o-15:rgba(245, 134, 230, 0.15);
+$primary-o-20:rgba(245, 134, 230, 0.2);
+$primary-o-20:rgba(245, 134, 230, 0.25);
+
+
+
+// Success
+$success: if(isDarkMode(), #0bb783, #50cd89);
+$success-active: if(isDarkMode(), #04aa77, #47be7d);
+$success-light: if(isDarkMode(), #1c3238, #e8fff3);
+$success-inverse: #ffffff;
+
+$success-500: #50CD89;
+
+// Info
+
+$info: if(isDarkMode(), #3699ff, #009ef7);
+$info-active: if(isDarkMode(), #187de4, #0095e8);
+$info-light: if(isDarkMode(), #212e48, #f1faff);
+$info-inverse: #ffffff;
+$info-light-inverse: if(isDarkMode(), #f1faff, #212e48);
+$info-500:#909399;
+$info-700:#57595C;
+$info-300:#BCBEC2;
+$info-50:#F4F4F5
+;
+// Danger
+$danger: if(isDarkMode(), #f64e60, #f1416c);
+$danger-active: if(isDarkMode(), #ee2d41, #d9214e);
+$danger-light: if(isDarkMode(), #3a2434, #fff5f8);
+$danger-inverse: #ffffff;
+$danger-300 : #F78DA7 ;
+
+
+// Warning
+$warning: if(isDarkMode(), #ffa800, #ffc700);
+$warning-active: if(isDarkMode(), #ee9d01, #f1bc00);
+$warning-light: if(isDarkMode(), #392f28, #fff8dd);
+$warning-inverse: #ffffff;
+
+$color-yellow: #ffc700;
+$color-blue: #00a3ff;
+$color-green: #50cd89;
+$color-red: #f1416c;
+$color-black: #000000;
+
+$colors: $color-yellow, $color-blue, $color-green, $color-red, $color-black;
+$color-todo: #ffc700;
+$color-in-progess: #00a3ff;
+$color-in-code-review: #50cd89;
+$color-feedback: #f1416c;
+$color-done: #000000;
+
+$colors-kanban: $color-todo, $color-in-progess, $color-in-code-review,
+  $color-feedback, $color-done;
+
+$white: #ffffff !default;
+$black: #000000 !default;
+$black-100: #38476d0f;
+$alice: #f3f6f9;
+$east-bay: #464e5f;
+$waterloo-dark: #7e8299;
+$gray-500: if(isDarkMode(), #565674, #a1a5b7) !default;
+$text-muted: $gray-500 !default;
+$large-xl: 1200px;
+$large-xxl: 1400px;
+$medium: 768px;
+
+//text-colors
+$text-color-10 : #fff;
+$text-color-50 : #F6F8FB;
+$text-color-70 : #E9ECEF;
+$text-color-250 : #000C57;
+$text-color-100 : #CCCEDD;  
+$text-color-250 : #000C57;
+$text-color-placeholder : #A8ABB2;
+$text-color-info-200 : #D3D4D6;
+$text-color-info-800 : #3A3B3E;
+$text-color-disabled : #C0C4CC;
+$text-color-150 : #6E759F;
+// red
+$red-500 : #FF6262;
+$red-600 : #D74E4E;
+
+// red
+$danger-400 : #F46789;
+$danger-500 : #F1416C;
+$danger-600 : #C33457;
+
+// background
+$bg-dark-400: #575A64;
+$bg-dark-500: #3B3D46;
+$bg-dark-600:#1E2027;
+$bg-dark-700:#181A1F;
+$bg-dark-Quaternary:#383838;
+
+$bg-dark-400:#575A64;
+$bg-dark-300: #747783;
+$bg-dark-100: #ADB1C0;
+$bg-dark-700: #181A1F;
+// white
+$white-gradient-9-7: linear-gradient(125.1deg, rgba(255, 255, 255, 0.09) -3.96%, rgba(255, 255, 255, 0.07) 118.2%);
+$white-50: rgba(255, 255, 255, 0.5);
+$white-transparent-11: rgba(255, 255, 255, 0.11);
+// TODO CHANGE
+
+$bd-card-color: #cbccd21a;
+$light-bloom: #343957;
+$info-color: #33c2ff;
+$error-color: #ff1a43;
+$success-color: #44d600;
+$nebula-fighter: #1c213d;
+$shadow-card-color: #6a7199;
+$white-transparent-11:rgba(255, 255, 255, 0.11);
+$bg-upload-color:#3E425A;
+$bg-upload-options-color:#343957;
+$tag-color: #909399;
+$tag-background:#f3eeff;
+$tag-close-hover-background:#909399;
+
+//Warning yellow color
+$warning-300: #FFDD66;
+
+//RED
+
+$red-500: #FF6262;

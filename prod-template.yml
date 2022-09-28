@@ -1,0 +1,49 @@
+stages:
+  - build-push
+  - deploy
+
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY  
+
+.InitVarEnv: &InitVarEnv
+  ##### Env dev
+  - export IMAGE_KIT_PUBLIC_KEY=$IMAGE_KIT_PUBLIC_KEY
+  - export IMAGE_KIT_PRIVATE_KEY=$IMAGE_KIT_PRIVATE_KEY
+  - export IMAGE_KIT_ENDPOINT=$IMAGE_KIT_ENDPOINT
+
+
+
+Build and push to registry: 
+  stage: build-push
+  only: 
+  - main
+  tags: 
+    - prod
+  script: 
+    - *InitVarEnv
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tekab-dev-team/retcheegroup/web-application.git
+    - cd web-application
+    - docker-compose --profile prod build 
+    - docker-compose --profile prod push
+    - rm -rf *
+
+
+Deploy to prod: 
+  stage: deploy
+  needs:
+    - job: Build and push to registry
+  only: 
+  - main
+  when: manual
+  tags: 
+  - prod
+  variables:
+    STAGE: prod
+    FO_PORT: 6200
+    SERVER_PORT: 6201
+  script: 
+  - *InitVarEnv  
+  - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/tekab-dev-team/retcheegroup/web-application.git
+  - cd web-application
+  - docker-compose --profile prod pull
+  - docker-compose --profile prod --project-name ${CLIENT_NAME:-demo}_${CI_PROJECT_NAME}_${STAGE} --env-file .env up -d 
