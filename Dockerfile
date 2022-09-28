@@ -23,7 +23,7 @@ COPY package.json package-lock.json ./
 RUN npm ci --loglevel=$NPM_LOG_LEVEL;
 
 # Copy Prisma schema
-COPY prisma/schema.prisma ./prisma/
+COPY server/prisma/schema.prisma ./prisma/
 
 # Generate Prisma client
 RUN npm run prisma:generate;
